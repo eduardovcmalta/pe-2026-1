@@ -15,12 +15,12 @@ int qtdEst;
 // --- FUNÇÕES AUXILIARES ---
 // Função para buscar o índice de um produto pelo código (evita repetição de lógica)
 int encontrarIndice(struct Produto produtos[], int n, int codigo) {
-for (int i = 0; i < n; i++) {
-if (produtos[i].codigo == codigo) {
-return i;
-}
-}
-return -1;
+    for (int i = 0; i < n; i++) {
+        if (produtos[i].codigo == codigo) {
+            return i;
+        }
+    }
+    return -1;
 }
 
 // Limpa o caractere '\n' do buffer do teclado para evitar bugs ao ler strings
