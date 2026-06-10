@@ -93,6 +93,51 @@ int alteraProduto(struct Produto v[], int tam){
         return 0;
     }
 }
+void bubblesort(struct Produto v[], int tam){
+    int fim = tam - 1;
+    int troca = 1;
+    struct Produto chave;
+    while (troca  == 1){
+        troca = 0;
+        for (int i = 0; i < fim; i++){
+            if (strcmp(v[i].descricao, v[i + 1].descricao) > 0){
+                chave = v[i];
+                v[i] = v[i + 1];
+                v[i + 1] = chave;
+                troca  = 1;
+
+            }
+        }
+        fim--;
+    }
+}
+void selectionsort(struct Produto v[], int tam) {
+    for (int i = 0; i < tam - 1; i++) {
+        int menorPos = i;
+        for (int j = i + 1; j < tam; j++) {
+            if (strcmp(v[j].descricao, v[menorPos].descricao) < 0) {
+                menorPos = j;
+            }
+        }
+        if (menorPos != i) {  // só troca se encontrou um menor
+            struct Produto chave = v[i];
+            v[i] = v[menorPos];
+            v[menorPos] = chave;
+        }
+    }
+}
+void insertionsort(struct Produto v[], int tam) {
+    for (int i = 1; i < tam; i++) {
+        struct Produto chave = v[i];
+        int j = i - 1;
+        while (j >= 0 && strcmp(v[j].descricao, chave.descricao) > 0) {
+            v[j + 1] = v[j];  // desloca elemento para direita
+            j--;
+        }
+        v[j + 1] = chave;  // insere na posição correta
+    }
+}
 int main() {
+
         return 0;
     }
